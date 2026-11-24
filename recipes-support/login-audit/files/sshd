@@ -1,0 +1,10 @@
+#%PAM-1.0
+auth       required     pam_env.so
+auth       optional     pam_exec.so /usr/bin/log_ssh_login.sh
+auth       include      common-auth
+account    required     pam_nologin.so
+account    optional     pam_exec.so /usr/bin/log_ssh_login.sh
+account    include      common-account
+password   include      common-password
+session    required     pam_loginuid.so
+session    include      common-session

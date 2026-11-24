@@ -1,0 +1,12 @@
+[Unit]
+Description=Host Console Pattern Monitoring Service
+After=syslog.target systemd-journald.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/host-console-monitor.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
